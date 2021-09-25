@@ -2,19 +2,34 @@
   "name": "cryptodata",
   "version": "0.1.0",
   "private": true,
+  "author": "Marilena Ioannou <marilena.ioannou.sg@gmail.com> (https://github.com/burbuli8ra)",
+  "description": "A mini web app that provides info of cryptocurrency prices",
+  "repository": "github:burbuli8ra/cryptodata",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
+    "recharts": "^2.1.4",
     "web-vitals": "^1.0.1"
   },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.0",
+    "@testing-library/user-event": "^13.2.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0"
+  },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=5000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:all": "react-scripts test --coverage --updateSnapshot --watch",
+    "test:coverage": "react-scripts test --coverage",
+    "test:update": "react-scripts test --updateSnapshot",
+    "test:watch": "react-scripts test --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
