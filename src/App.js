@@ -1,23 +1,29 @@
-import logo from 'assets/logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { AppProvider } from 'provider';
+import { Footer, Header, Main } from 'components';
+import { CoinDetails, CoinsList } from 'views';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img
-          alt="CryptoData logo"
-          className="CryptoData-logo"
-          data-testid="logo"
-          height={150}
-          width={150}
-          src={logo}
-        />
-        <p data-testid="greeting">
-          Edit <code>src/App.js</code> and enjoy coding time! 🥂
-        </p>
-      </header>
-    </div>
+    <AppProvider>
+      <Router>
+        <Header />
+        <Main>
+          <Switch>
+            <Route
+              component={CoinsList}
+              exact={true}
+              path="/"
+            />
+            <Route
+              component={CoinDetails}
+              path="/coin/:id"
+            />
+          </Switch>
+        </Main>
+      </Router>
+      <Footer />
+    </AppProvider>
   );
 }
 
