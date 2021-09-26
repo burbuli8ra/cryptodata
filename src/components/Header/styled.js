@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { colors } from 'theme';
 
 const Header = styled.header`
-  padding: 20px;
+  padding: 24px;
   position: relative;
   text-align: center;
   z-index: 1;
