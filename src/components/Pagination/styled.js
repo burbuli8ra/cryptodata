@@ -4,7 +4,7 @@ const Button = styled.button`
   border: none;
   border-radius: 16px;
   line-height: 1;
-  font-weight: normal;
+  font-weight: 400;
   padding: 10px;
 `;
 Button.displayName = 'Button';

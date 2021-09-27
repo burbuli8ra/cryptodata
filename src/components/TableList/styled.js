@@ -20,7 +20,7 @@ const Label = styled.div`
   border-radius: 16px;
   line-height: 1;
   font-size: 12px;
-  font-weight: normal;
+  font-weight: 400;
   padding: 10px;
   width: fit-content;
 `;
@@ -45,7 +45,7 @@ const Name = styled(Link)`
   display: flex;
   justify-content: center;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
 `;
 Name.displayName = 'Name';
 
@@ -60,7 +60,7 @@ const Statistics = styled.div`
   display: grid;
   grid-gap: 8px;
   grid-template-rows: 1fr 1fr;
-  font-weight: bold;
+  font-weight: 700;
 `;
 Statistics.displayName = 'Statistics';
 
@@ -83,7 +83,7 @@ const TableItem = styled.li`
   grid-column-gap: 24px;
   grid-template-columns: 50px 200px 100px 1fr;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   list-style: none;
   padding: 24px;
   
@@ -98,7 +98,7 @@ const TableList = styled.ul`
   border-radius: 8px;
   color: ${colors.quickSilver};
   font-style: italic;
-  font-weight: bold;
+  font-weight: 700;
   overflow: hidden;
   padding: ${({ isEmpty }) => isEmpty ? '48px' : 0};
   text-align: center;
