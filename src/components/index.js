@@ -1,3 +1,4 @@
+export { default as CoinCharts } from './CoinCharts';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Loader } from './Loader';

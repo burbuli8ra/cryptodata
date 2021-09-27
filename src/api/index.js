@@ -35,6 +35,11 @@ const fetchRoute = {
     apiRequest({
       url: `${API}/coins/${id}`
     }),
+  coinChart: (id, searchParams) =>
+    apiRequest({
+      url: `${API}/coins/${id}/market_chart`,
+      searchParams
+    }),
   coinsList: searchParams =>
     apiRequest({
       url: `${API}/coins/markets`,

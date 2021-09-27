@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import fetchRoute from 'api';
+import { CoinCharts } from 'components';
 import CoinInfo from 'components/CoinInfo';
 import { useAppContext } from 'provider';
 import { COINS_CURRENCY } from 'utils/constants';
@@ -14,13 +15,27 @@ const CoinDetails = () => {
 
   const { id } = useParams();
 
+  const [chartDays, setChartDays] = useState(1);
   const [coinInfo, setCoinInfo] = useState({});
+  const [coinCharts, setCoinCharts] = useState([]);
 
   const getCoinDetails = async () => {
     appDispatch({ type: 'SET_IS_LOADING' });
 
     return fetchRoute.coinDetails(id);
   };
+
+  const getCoinCharts = async () => {
+    appDispatch({ type: 'SET_IS_LOADING' });
+
+    return fetchRoute.coinChart(id, {
+      days: chartDays,
+      id,
+      vs_currency: COINS_CURRENCY
+    });
+  };
+
+  const handleButtonClick = days => setChartDays(days);
 
   useEffect(() => {
     getCoinDetails()
@@ -78,8 +93,25 @@ const CoinDetails = () => {
       })
   }, []);
 
+  useEffect(() => {
+    getCoinCharts()
+      .then(response => {
+        appDispatch({ type: 'RESET_IS_LOADING' });
+
+        const prices = response?.prices?.map(price => ({
+          date: price[0],
+          price: price[1]
+        })) || [];
+
+        setCoinCharts(prices);
+      })
+  }, [chartDays]);
+
   return (
-    <CoinInfo coin={coinInfo} />
+    <>
+      <CoinInfo coin={coinInfo} />
+      <CoinCharts charts={coinCharts} days={chartDays} onClick={handleButtonClick} />
+    </>
   )
 };
 
